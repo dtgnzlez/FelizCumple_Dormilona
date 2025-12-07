@@ -90,3 +90,85 @@ setInterval(createFirework, 700);
 
 // Iniciar animación
 animate();
+
+// ================================
+//  SISTEMA DE FASES
+// ================================
+let fase = 0; 
+let puedeAvanzar = false;
+
+const mainText = document.getElementById("main-text");
+const subtext = document.getElementById("subtext");
+const polaroids = document.getElementById("polaroids");
+const carta = document.getElementById("carta");
+const finalScreen = document.getElementById("final");
+
+// Mostrar texto principal con delay
+setTimeout(() => {
+  mainText.classList.add("visible");
+}, 800);
+
+// Permitir avanzar después de 3 segundos
+setTimeout(() => {
+  subtext.classList.add("visible");
+  puedeAvanzar = true;
+}, 3000);
+
+// Click para avanzar
+document.addEventListener("click", avanzar);
+document.addEventListener("touchstart", avanzar);
+
+function avanzar() {
+  if (!puedeAvanzar) return;
+
+  fase++;
+  puedeAvanzar = false;
+
+  switch (fase) {
+    case 1:
+      mostrarPolaroids();
+      break;
+    case 2:
+      mostrarCarta();
+      break;
+    case 3:
+      mostrarFinal();
+      break;
+  }
+}
+
+// ================================
+//  FASE 1 — POLAROID
+// ================================
+function mostrarPolaroids() {
+  mainText.classList.remove("visible");
+  subtext.classList.remove("visible");
+
+  setTimeout(() => {
+    polaroids.classList.add("visible");
+    puedeAvanzar = true;
+  }, 700);
+}
+
+// ================================
+//  FASE 2 — CARTA
+// ================================
+function mostrarCarta() {
+  polaroids.classList.remove("visible");
+
+  setTimeout(() => {
+    carta.classList.add("visible");
+    puedeAvanzar = true;
+  }, 700);
+}
+
+// ================================
+//  FASE 3 — FINAL
+// ================================
+function mostrarFinal() {
+  carta.classList.remove("visible");
+
+  setTimeout(() => {
+    finalScreen.classList.add("visible");
+  }, 700);
+}
