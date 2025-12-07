@@ -1,0 +1,42 @@
+/* Mobile-friendly styles */
+:root{
+  --accent: #ffd66b;
+  --glass: rgba(255,255,255,0.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, Arial, sans-serif;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+canvas{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  display:block;
+}
+#ui{position:relative; z-index:2; pointer-events:none; height:100%; width:100%;}
+.center{position:absolute; left:50%; top:12%; transform:translateX(-50%); text-align:center; width:90%;}
+.typing{font-size:clamp(20px,6vw,36px); margin:0; text-shadow:0 4px 20px rgba(0,0,0,0.6);}
+.hidden{opacity:0; transform:translateY(10px); transition:all .7s ease; pointer-events:none;}
+.visible{opacity:1; transform:translateY(0); pointer-events:auto;}
+#polaroids{position:absolute; top:40%; left:50%; transform:translateX(-50%); width:100%; display:flex; flex-direction:column; gap:12px; align-items:center; pointer-events:auto;}
+.polaroid{width:86%; max-width:420px; background:linear-gradient(180deg,#111,#0f0f12); padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.6); text-align:center; font-size:16px;}
+#carta{position:absolute; top:55%; left:50%; transform:translateX(-50%); width:90%; display:flex; justify-content:center;}
+.caja{background:linear-gradient(180deg,#090909,#111); padding:20px; border-radius:12px; width:86%; max-width:520px; box-shadow:0 15px 40px rgba(0,0,0,0.6); text-align:center; font-size:16px;}
+#final{position:absolute; bottom:12%; left:50%; transform:translateX(-50%); text-align:center;}
+/* small helper */
+.tap-hint{font-size:12px; opacity:0.8; margin-top:8px}
+@media (min-width:900px){
+  .center{top:8%}
+  .typing{font-size:48px}
+}
+body {
+    font-family: 'Fredoka One', cursive;
+}
