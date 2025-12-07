@@ -37,6 +37,14 @@ canvas{
   .center{top:8%}
   .typing{font-size:48px}
 }
-h1, h2, .polaroid, .caja, p {
+#main-text {
   font-family: "Great Vibes", cursive;
+  font-size: 48px;
+}
+body, 
+.polaroid, 
+.caja, 
+#carta p, 
+#final h2 {
+  font-family: "Fredoka One", cursive;
 }
